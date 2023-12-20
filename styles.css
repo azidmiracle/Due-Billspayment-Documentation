@@ -1,0 +1,137 @@
+body{
+    background-color:rgb(250, 246, 246);
+}
+
+#div-wrapper{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "navbar navbar navbar navbar"
+    "main-doc main-doc main-doc main-doc";
+}
+
+
+#navbar{
+    grid-area: navbar;
+    font-family: 'Quicksand', sans-serif;
+    margin: auto;
+    margin-bottom:30px;
+    text-align: center;
+}
+#navbar header{
+    font-weight: bolder;
+    font-size: 20px;
+    color:rgba(53, 50, 6, 0.8)
+}
+
+#navbar div{
+    margin: auto;
+    margin-top: 20px;
+
+}
+
+#navbar div div {
+    font-size: 15px;
+    margin-top: 10px;
+    word-wrap: break-word;
+}
+
+
+.nav-link{
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    color:#333
+    
+}
+a:active {
+    color: blue;
+}
+
+a[tabindex]:focus {
+    color:blue;
+    outline: none;
+}
+
+#main-doc{
+    grid-area: main-doc;
+    font-family: 'Poiret One', cursive;
+    font-family: 'Quicksand', sans-serif;
+    
+}
+#main-doc header{
+    font-weight: bolder;
+}
+
+p{
+    font-size: 14px;
+}
+
+hr{
+    height:1px;
+    color:gray;
+    background-color:gray"
+}
+
+#interface-wrapper{
+    margin:auto;
+    
+}
+
+#interface-wrapper div {
+    margin-top:10px;
+    padding: 5px 5px 5px 5px;
+}
+
+figcaption{
+    font-size: 10px;
+    text-align: center;
+}
+
+img{
+    max-width:100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:150px;
+    border-radius:20px;
+}
+
+@media(min-width:800px){
+    #div-wrapper{
+        grid-template-areas: "navbar main-doc main-doc main-doc"
+        "navbar main-doc main-doc main-doc";
+    }
+
+    #navbar{
+        position: fixed;
+        /*border-style: solid;
+        border-width: 1px;*/
+        padding: 5px 5px 5px 5px;
+        text-align: left;
+    }
+
+    #main-doc{
+        margin-left:10px;
+    }
+
+
+    #interface-wrapper{
+        display: grid;
+        grid-template-columns: 300px 300px;
+    }
+
+
+    img{
+        max-width:100%;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width:500px;
+        border-radius:20px;
+        
+    }
+    
+    
+}

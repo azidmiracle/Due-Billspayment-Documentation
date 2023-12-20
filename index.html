@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Quicksand:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <title>Due List Technical Documentation</title>
+  </head>
+  <body>
+    <div id="div-wrapper">
+      <nav id="navbar">
+        <header>Due List SLDC</header>
+
+        <div>
+          <div>
+            <a href="#introduction" class="nav-link" tabindex="1">Introduction</a>
+          </div>
+
+          <div>
+            <a href="#planning" class="nav-link" tabindex="2">Planning</a>
+          </div>
+          <div>
+            <a href="#requirement_analysis" class="nav-link"
+            tabindex="3">Requirement Analysis</a
+            >
+          </div>
+          <div>
+            <a href="#software_design" class="nav-link" tabindex="4">Software Design</a>
+          </div>
+          <div>
+            <a href="#software_implementation" class="nav-link" tabindex="5"
+              >Software Implementation</a
+            >
+          </div>
+          <div>
+            <a href="#software_deployment" class="nav-link" tabindex="6"
+              >Software Deployment</a
+            >
+          </div>
+          <div>
+            <a href="#references" class="nav-link" tabindex="7">References</a>
+          </div>
+        </div>
+      </nav>
+
+      <main id="main-doc">
+        <section class="main-section" id="introduction">
+          <header>Introduction</header>
+          <article>
+            <p>
+              Adulting is real. The more you get older, the more payments you
+              have. This is true to my case where I and my husband have a lot of
+              bills payments such as health and life insurance, condominium
+              investment, house rent, telco bills, remittance to the family in
+              the Philippines,among others. As a result, due date of bills
+              payments is often forgotten.
+            </p>
+          </article>
+        </section>
+        <hr />
+        <section class="main-section" id="planning">
+          <header>Planning</header>
+          <article>
+            <ol>
+              <li>
+                <h5>Statement of the problem</h5>
+                <p>
+                  We need to check our bank app again and scrolling through our
+                  emails for history to check whether we already paid or not, and
+                  this is very time consuming. This caused us a lot of
+                  headache. As a matter of fact, we could have used the Note
+                  app but it cannot trace any relationsship of the bills such as
+                  the history on monthly basis.
+                </p>
+              </li>
+              <li>
+                <h5>Solution Strategy</h5>
+                <p>
+                  As a solution, I developed this app called Due List. This is
+                  somewhat similar to bank application but fewer features. Once
+                  the payment or remittance is done, we should input it in the
+                  Due List app right away.
+                </p>
+              </li>
+              <li>
+                <h5>Project Schedule</h5>
+                <p>
+                  Since I have a full-time job, I can allot only at least 2 hours
+                  per day on developing this project. It took me almost two
+                  months to complete it.
+                </p>
+              </li>
+            </ol>
+          </article>
+        </section>
+        <hr />
+        <section class="main-section" id="requirement_analysis">
+          <header>Requirement Analysis</header>
+          <article>
+            <ol>
+              <li>
+                <h5>Functional Requirement</h5>
+                <ol>
+                  <li>
+                    The system should be able to store data of the user, due
+                    list and transactions.
+                  </li>
+                  <li>The user should be able to register and log-in.</li>
+                  <li>
+                    The user can update the password in case he or she forgets
+                    it.
+                  </li>
+                  <li>
+                    The user should be able to add, update and delete the due
+                    list.
+                  </li>
+                  <li>
+                    The user should be able to add transaction under the bills
+                    name.
+                  </li>
+                  <li>
+                    The user should be able to view past transactions and select
+                    the range of months.
+                  </li>
+                  <li>
+                    The user should be able to add to the Google Calendar of
+                    each bills name registered.
+                  </li>
+                </ol>
+              </li>
+              <li>
+                <h5>Non-Functional Requirement</h5>
+                <ol>
+                  <li>
+                    Platform: The application should work in both desktop and
+                    mobile devices.
+                  </li>
+                  <li>
+                    Database: The data should be stored in the cloud so it would
+                    be real-time update.
+                  </li>
+                  <li>
+                    Performance: The system should be able to handle multiple
+                    concurrent users to use the system without breakdown.
+                  </li>
+                </ol>
+              </li>
+              <li>
+                <h5>Data Flow Diagram</h5>
+                <p>
+                  The following image shows the basic data flow of the
+                  application
+                </p>
+                <img src="assets/dfd.JPG" alt="" />
+                <figcaption>
+                  Figure 1: Data Flow Diagram
+                </figcaption>
+              </li>
+             
+              
+            </ol>
+          </article>
+        </section>
+        <hr />
+        <section class="main-section" id="software_design">
+          <header>Software Design</header>
+          <article>
+            <ol>
+              <li>
+                <h5>Data Design</h5>
+                <p>
+                  The Relational Model is created using Draw.io a open source
+                  software.
+                </p>
+                <img src="assets/er.JPG" alt="" />
+                <figcaption>
+                  Figure 2: Entity-Relationship Diagram
+                </figcaption>
+                <br>
+                <ul>
+                  Description of the Model
+                  <li>A user can have one or more due lists.</li>
+                  <li>A due list can have one or more transactions.</li>
+                  <li>A transaction can only be owned by one due list.</li>
+                </ul>
+                <br />
+                <ul>
+                  Description of the Tables
+                  <li>User</li>
+                  <ul>
+                    <li>
+                      _id : unique number, objectid which is auto-generated
+                    </li>
+                    <li>
+                      username : string
+                    </li>
+                    <li>
+                      password : string
+                    </li>
+                    <li>
+                      name : string
+                    </li>
+                    <li>
+                      email : string
+                    </li>
+                  </ul>
+                  <li>DueList</li>
+                  <ul>
+                    <li>
+                      _id : unique number, objectid which is auto-generated
+                    </li>
+                    <li>
+                      user_id : string (Foreign key from user _id attribute)
+                    </li>
+                    <li>
+                      bills_name : string
+                    </li>
+                    <li>
+                      frequency: string
+                      ({0:Monthly,1:Quarterly,2:Sem-annually,3: Annually})
+                    </li>
+                    <li>
+                      benefeciary_name : string
+                    </li>
+                    <li>
+                      scheduled_day : Number (1-31)
+                    </li>
+                    <li>
+                      amount : Number
+                    </li>
+                    <li>
+                      Currency : String (SGD or PHP)
+                    </li>
+                    <li>
+                      txn : Array (child of due list table)
+                    </li>
+                  </ul>
+                  <li>txn</li>
+                  <ul>
+                    <li>
+                      _id : unique number, objectid which is auto-generated
+                    </li>
+                    <li>
+                      date_paid : Date (Default: Date.now)
+                    </li>
+                    <li>
+                      amount:Number
+                    </li>
+                    <li>
+                      Currency : String (SGD or PHP)
+                    </li>
+                    <li>
+                      paid_by : String
+                    </li>
+                    <li>
+                      mode_payment : String
+                    </li>
+                  </ul>
+                </ul>
+              </li>
+              <li>
+                <h5>Architectural Design</h5>
+
+                <p>
+                  The following diagrams are created using MS Excel software
+                </p>
+                <img src="assets/architectural_1.JPG" alt="" />
+                <figcaption>Figure 3: Architectural Design: Abstract Layer</figcaption>
+
+                <img src="assets/encryptpwd.JPG" alt="" />
+                <figcaption>
+                  Figure 4: Architectural Design: Encrypt Password During Registration
+                </figcaption>
+                <p>Install via NPM</p>
+                <code>
+                  npm install bcrypt
+                </code>
+                <p>
+                  A detailed explanation on how to use this API is in this
+                  <a href="https://www.npmjs.com/package/bcrypt" target="_blank"
+                    >github link.</a
+                  >
+                </p>
+
+                <img src="assets/token.JPG" alt="" />
+                <figcaption>
+                  Figure 4: 
+                  Architectural Design: Generation of Token and Sent to the
+                  Email
+                </figcaption>
+
+                <p>
+                  A detailed explanation on how to use this API is in this
+                  <a
+                    href="https://nodejs.org/api/crypto.html#crypto_crypto_randombytes_size_callback"
+                    target="_blank"
+                    >website.</a
+                  >
+                </p>
+                <p>In the javascript file, the following code is added.</p>
+                <code>require("crypto")</code>
+
+                <br />
+                <p>
+                  In order for the token to be sent automatically to the
+                  registered e-mail address, we required an SMTP API. I chose
+                  Elatic Email API since it is free and easy to use. The
+                  documentation also is well-written. Please check the
+                  <a href="https://elasticemail.com/" target="_blank"
+                    >Elastic website</a
+                  >
+                  for details.
+                </p>
+                <code>
+                  var client = elasticemail.createClient({ <br />
+                  username: "aaaa",<br />
+                  apiKey:<br />
+                  process.env.SMTP_API_KEY,<br />
+                  });
+                </code>
+                <br />
+
+                <img src="assets/gcalendar.JPG" alt="" />
+                <figcaption>
+                  Figure 5: 
+                  Architectural Design: Google Authentication
+                </figcaption>
+                <p>
+                  In order for the application to access the Google Services, an
+                  Google Authentication is required. The API registration can be
+                  accessed
+                  <a
+                    href="https://console.developers.google.com/apis"
+                    target="_blank"
+                    >here.</a
+                  >
+                </p>
+              </li>
+              <li>
+                <h5>Procedural Design</h5>
+                <ol>
+                  <u>Registration</u>
+                  <li>User will click the register button.</li>
+                  <li>System will display the registration interface.</li>
+                  <li>User will input the data.</li>
+                  <li>System will pre-evaluate the data provided.</li>
+                  <li>User will click the register now.</li>
+                  <li>System will prompt the user if want to proceed.</li>
+
+                  <li>
+                    The password will be hashed and the details will be
+                    registered to the user table.
+                  </li>
+                  <li>The system will automatically redirect to login page.</li>
+                </ol>
+
+                <br />
+
+                <ol>
+                  <u>Reset Password</u>
+                  <li>User will click the forgot button.</li>
+                  <li>Sytem will display the reset password interface.</li>
+                  <li>User will input the registered email address.</li>
+                  <li>
+                    System will send token (4-character) to the email address
+                    provided.
+                  </li>
+                  <li>User will type the token received.</li>
+                  <li>
+                    System will verify if the token inputted is the same as the
+                    one sent to the email.
+                  </li>
+                  <ol>
+                    <li>
+                      If the token is the same, it will ask the user to type the
+                      new password.
+                    </li>
+                    <li>
+                      The system will hashed the password and will update the
+                      new password associated to the email address provided.
+                    </li>
+                    <li>
+                      Once successful, the system will automatically redirect to
+                      login page.
+                    </li>
+                  </ol>
+                </ol>
+                <br />
+                <ol>
+                  <u>Log-in</u>
+                  <li>User will type the username and password.</li>
+                  <li>
+                    The system will check if the username exists in the database.
+                  </li>
+                  <ol>
+                    <li>
+                      If the username exists, it will compare the password typed
+                      and the password in the database using bycrypt API.
+                    </li>
+                    <li>
+                      If it matches, it will redirect to the homepage.
+                    </li>
+                    <li>
+                      Else, system will automatically redirect to login page.
+                    </li>
+                  </ol>
+                </ol>
+
+                <br />
+                <ol>
+                  <u>Create or Add Bill's Name</u>
+                  <li>
+                    User will click the add button.
+                  </li>
+                  <li>System will display the Add Bill Interface.</li>
+                  <li>
+                    User will input the details: Bill's name, Benefeciary name,
+                     Frequency, scheduled day, amount to pay, and currency.
+                  </li>
+                  <li>System will prompt if the bill will be added.</li>
+                  <li>
+                    If the user will click yes, the bill will be added to the
+                    duelist table.
+                  </li>
+                  <li>
+                    The system will display alert of successful creation of
+                    bill.
+                  </li>
+                  <li>Else, it will stay in the same page.</li>
+                </ol>
+                <br />
+                <ol>
+                  <u>Delete Bill's Name</u>
+                  <li>
+                    In the homepage, user will click the X (delete) button.
+                  </li>
+                  <li>
+                    System will ask the user if he/she will delete the bill.
+                  </li>
+                  <li>
+                    If the user will click yes, the bill and all its
+                    transactions will be deleted as well.
+                  </li>
+                </ol>
+                <br />
+                <ol>
+                  <u>Search Bill's Name</u>
+                  <li>
+                    In the homepage, user will type the name of bill on the
+                    search textbox.
+                  </li>
+                  <li>
+                    When the user will unfocus the textbox, the system will
+                    automatically search the bills that matches the keyword in
+                    the textbox.
+                  </li>
+                </ol>
+
+                <br />
+
+                <ol>
+                  <u>Update Bill's details</u>
+                  <li>
+                    In the homepage, user will click the See Detail button.
+                  </li>
+                  <li>
+                    The system will display the Edit Bill Details interface.
+                  </li>
+                  <li>User will click the Edit button.</li>
+                  <li>System will show the Clear and Update buttons.</li>
+                  <li>User will update the details.</li>
+                  <li>
+                    If the update button is clicked, the system will update the
+                    details to the duelist table.
+                  </li>
+                  <li>
+                    If the clear button is clicked, the details in the textboxes
+                    wil be cleared.
+                  </li>
+                </ol>
+
+                <br />
+                <ol>
+                  <u>Add transaction</u>
+                  <li>
+                    In the homepage, user will click the See Detail button.
+                  </li>
+                  <li>
+                    The system will display the Edit Bill Details interface.
+                  </li>
+                  <li>
+                    User will click the Add Transaction button (card icon).
+                  </li>
+                  <li>System will display the Add Transaction interface.</li>
+                  <li>
+                    User will input the details such as as data, amount
+                    paid, currency, paid by and mode of payment.
+                  </li>
+                  <li>User will click the Add button.</li>
+                  <li>
+                    System will ask the user if he/she will add the transaction
+                    since it cannot be deleted or updated any more.
+                  </li>
+                  <li>
+                    When the user will click yes, the transaction will be
+                    inserted to the duelist details.
+                  </li>
+                  <li>Else, it will stay in the same page.</li>
+                </ol>
+                <br />
+                <ol>
+                  <u>Add to Google Calendar</u>
+                  
+                  <li>
+                    In the homepage, user will click the Add to Calendar button.
+                  </li>
+                  <li>
+                    Sytem will display the Add to Google Calendar interface.
+                  </li>
+                  <li>
+                    User has the options to select the number of years (1, 2 or
+                    3 years) where the event is to be added in the calendar.
+                  </li>
+                  <li>User will click the Add to Google Calendar button.</li>
+                  <li>
+                    System will ask the user if he/she wanted to continue.
+                  </li>
+                  <li>
+                    If the user will click yes, the system will display the
+                    google authentication.
+                  </li>
+                  <li>User will follow the instruction.</li>
+                  <li>
+                    If he/she allowed to access the google calendar, the event
+                    will be added to the calendar associated to the email he/she
+                    is logged in.
+                  </li>
+                </ol>
+                <br />
+                <ol>
+                  <u>View Transaction History</u>
+                  <li>
+                    In the History page, the transactions for the past three
+                    months will be displayed in the screen.
+                  </li>
+                  <li>
+                    When the user click the month name, the system will display
+                    the transaction related to that month.
+                  </li>
+                  <li>
+                    When the user select the months to display the transaction,
+                    the system will automatically filter the dates associated in
+                    the month range.
+                  </li>
+                </ol>
+
+                <br />
+                <ol>
+                  <u>Log-out</u>
+                  <li>User will click the Settings tab.</li>
+                  <li>System will display the Settings interface.</li>
+                  <li>User will click the log-out button.</li>
+                  <li>System will redirect to the log-in page.</li>
+                </ol>
+              </li>
+              <li>
+                <h5>Interface Design</h5>
+                <div id="interface-wrapper">
+                  <div>
+                    <img src="assets/interface_login.JPG" alt="" />
+                    <figcaption>
+                      Figure 6: 
+                      Login Interface
+                    </figcaption>
+                  </div>
+                  <div>
+                    <img src="assets/interface_registration.JPG" alt="" />
+                    <figcaption>
+                      Figure 7: 
+                      Registration Interface
+                    </figcaption>
+                  </div>
+                  <div>
+                    <img src="assets/interface_resetpwd.JPG" alt="" />
+                    <figcaption>
+                      Figure 8: 
+                      Password Reset
+                    </figcaption>
+                  </div>
+                  <div>
+                    <img src="assets/interface_codeverification.JPG" alt="" />
+                    <figcaption>
+                      Figure 9: 
+                      Password Token Verification
+                    </figcaption>
+                  </div>
+                  <div>
+                    <img src="assets/interface_home.JPG" alt="" />
+                    <figcaption>
+                      Figure 10: 
+                      Home Page
+                    </figcaption>
+                  </div>
+                  <div>
+                    <img src="assets/interface_addbill.JPG" alt="" />
+                    <figcaption>
+                      Figure 11: 
+                      Enroll Bill
+                    </figcaption>
+                  </div>
+                  <div>
+                    <img src="assets/interface_editbill.JPG" alt="" />
+                    <figcaption>
+                      Figure 12: 
+                      Edit Bill
+                    </figcaption>
+                  </div>
+                  <div>
+                    <img src="assets/interface_addtxn.JPG" alt="" />
+                    <figcaption>
+                      Figure 13: 
+                      Add Transaction
+                    </figcaption>
+                  </div>
+                  <div>
+                    <img src="assets/interface_viewtxnhistory_2.JPG" alt="" />
+                    <figcaption>
+                      Figure 14: 
+                      Transaction History Page
+                    </figcaption>
+                  </div>
+                  <div>
+                    <img src="assets/interface_settings.JPG" alt="" />
+                    <figcaption>
+                      Figure 15: 
+                      Settings Page
+                    </figcaption>
+                  </div>
+                </div>
+              </li>
+            </ol>
+          </article>
+        </section>
+        <hr />
+        <section class="main-section" id="software_implementation">
+          <header>Software Implementation</header>
+          <article>
+            <ol>
+              <li>
+                <h5>Programming Language</h5>
+
+                <p>
+                  The project is using <b>Javascript</b> as the main programming
+                  language.
+                </p>
+                <p>
+                  For the server-side, <b>NodeJS</b> is used for the programming
+                  language.
+                </p>
+              </li>
+              <li>
+                <h5>Framework</h5>
+
+                <p>
+                  Just a little background on why I chose VueJS over Angular or
+                  React. On May 2020, I tried to study AngularJS to build mobile
+                  application but it seems it was too steep for me. So I googled
+                  which one best for the beginner programmer. I read some topics
+                  regarding the difference between VueJS, ReactJs and AngularJS.
+                  Some says that for beginner like me, VueJS is a better start
+                  to learn. Without hesitation, I tried it by getting my hands
+                  dirty and true enough I was in love with Vue. After that, I
+                  was thinking to develop my own app which could be beneficial
+                  to me (first).
+                </p>
+                <p>
+                  This application is using <b>Ionic Framework</b> on top of
+                  <b>VueJS</b>.
+                </p>
+              </li>
+              <li>
+                <h5>APIS</h5>
+
+                <p>
+                  The following are the API's used in the project:
+                </p>
+                 <ul>
+                   <li>Mongoose</li>
+                   <li>Bycrypt</li>
+                   <li>crypto</li>
+                   <li>Google Api</li>
+                   <li>Elastic Email (SMTP) Api</li>
+                 </ul>
+
+              </li>
+              <li>
+                <h5>Database Type</h5>
+
+                <p>
+                  I decided to use <b>MongoDB (NoSQL)</b> as the database. 
+                  The sandbox type is free.
+
+                </p>
+               
+              </li>
+
+              <li>
+                <h5>Code</h5>
+
+                <p>
+                  For the complete code, please refer to the following github link.
+                </p>
+
+                <ol>
+                  <li>Client-Side: <a href="https://github.com/azidmiracle/Due-Billspayment-Client-Vue-Axios" target="_blank">https://github.com/azidmiracle/Due-Billspayment-Client-Vue-Axios</a></li>
+                  <li>Server-Side: <a href="https://github.com/azidmiracle/Due-Billspayment-Server-Node.js" target="_blank">https://github.com/azidmiracle/Due-Billspayment-Server-Node.js</a></li>
+                </ol>
+                
+              </li>
+            </ol>
+          </article>
+        </section>
+        <hr />
+        <section class="main-section" id="software_deployment">
+          <header>Software Deployment</header>
+          <article>
+            <ol>
+              <li>
+                Mobile and Desktop Platform
+                <p>The server-side and client-side is deployed in the Heroku. The following code shows how to deploy to Heroku.</p>
+                <code>heroku create bills-payment-lists</code><br>
+                <code>heroku git:remote --app bills-payment-lists</code><br>
+                <code>git commit -am "remove dist fromgit ignore"</code><br>
+                <code>git push heroku master</code>
+              </li>
+              <br>
+              <li>Android Platform
+                <p>In order for the ionic/vue to be able to deploy to the android platform, we should use <b>Capacitor</b>. It allows to run the 
+                application across desktop, mobile and android platforms.</p>
+                <p>The following code is done in order to add android platform.</p>
+                <code>npm run build</code><br>
+                <code>npx cap copy</code><br>
+                <code>npx cap add android</code><br>
+                <code>npx cap open android</code><br>
+              </li>
+            </ol>
+          </article>
+        </section>
+        <hr />
+        <section class="main-section" id="references">
+          <header>References</header>
+          <article>
+            <ol>
+              <li><a href="https://vuejs.org/" target="_blank">Vue JS</a></li>
+              <li><a href="https://ionicframework.com/docs/vue/overview" target="_blank">IonicS</a></li>
+              <li><a href="https://capacitorjs.com/" target="_blank">Capacitor</a></li>
+              <li><a href="https://www.mongodb.com/" target="_blank">MongoDB</a></li>
+            </ol>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
